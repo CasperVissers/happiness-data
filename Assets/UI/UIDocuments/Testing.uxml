@@ -1,4 +1,5 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/Resources/StyleSheets/general.uss?fileID=7433441132597879392&amp;guid=d098aedc2ba428c49af4e34207bb0f53&amp;type=3#general" />
     <Style src="project://database/Assets/UI/Resources/StyleSheets/bar.uss?fileID=7433441132597879392&amp;guid=3b047848bab8aa54093daeff1e7340c8&amp;type=3#bar" />
+    <UI.BarVisualElement />
 </ui:UXML>
