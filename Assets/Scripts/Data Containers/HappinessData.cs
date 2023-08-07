@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 
 namespace Happiness
 {
-    public partial class HappinessData
+    public class HappinessData
     {
         [JsonProperty("Country name")]
         public string CountryName { get; set; }
@@ -65,13 +65,5 @@ namespace Happiness
 
         [JsonProperty("Dystopia + residual")]
         public double DystopiaResidual { get; set; }
-    }
-
-    public partial class HappinessData
-    {
-        public static List<HappinessData> ReadDataFromJson(string json)
-        {
-            return JsonConvert.DeserializeObject<List<HappinessData>>(json);
-        }
     }
 }
