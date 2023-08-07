@@ -22,7 +22,7 @@ namespace UI
                 var bar = ve as BarVisualElement;
                 bar.Min = m_Min.GetValueFromBag(bag, cc);
                 bar.Max = m_Max.GetValueFromBag(bag, cc);
-                bar.Current = m_Current.GetValueFromBag(bag, cc);
+                bar.SetValue(m_Current.GetValueFromBag(bag, cc));
                 bar.IsDashed = m_IsDashed.GetValueFromBag(bag, cc);
             }
         }
@@ -53,8 +53,7 @@ namespace UI
         /// <summary>
         /// Current displayed value of the bar
         /// </summary>
-        public float Current { get => _current; set => SetValue(value); }
-        private float _current = 0f;
+        public float Current { get; private set; }
         /// <summary>
         /// Set value of the bar
         /// </summary>
@@ -107,11 +106,13 @@ namespace UI
             SetXLabel("Unknown");
         }
 
-        private void SetValue(float value)
+        public void SetValue(float value)
         {
+            HideBar(false);
+
             this.Value = value;
-            _current = Mathf.Clamp(value, Min, Max);
-            float fraction = _current / Max;
+            Current = Mathf.Clamp(value, Min, Max);
+            float fraction = Current / Max;
 
             SetBarValueLabel();
             SetBarHeight();
@@ -131,7 +132,7 @@ namespace UI
             }
         }
 
-        private void SetXLabel(string labelName)
+        public void SetXLabel(string labelName)
         {
             xLabel.text = labelName;
         }
@@ -156,6 +157,11 @@ namespace UI
         private void SetVisibilityValueLabel(bool isVisable)
         {
             valueLabel.style.visibility = isVisable ? Visibility.Visible : Visibility.Hidden;
+        }
+
+        public void HideBar(bool isHidden)
+        {
+            this.style.display = isHidden ? DisplayStyle.None : DisplayStyle.Flex;
         }
     }
 }

@@ -16,7 +16,7 @@
                     <ui:Label tabindex="-1" text="2" display-tooltip-when-elided="true" class="text-size1 text-font" />
                     <ui:Label tabindex="-1" text="0" display-tooltip-when-elided="true" class="text-size1 text-font" />
                 </ui:VisualElement>
-                <ui:VisualElement name="barGraph" style="width: 92%; height: 100%; border-bottom-width: 3px; border-left-width: 3px; border-left-color: rgb(84, 83, 83); border-right-color: rgb(84, 83, 83); border-top-color: rgb(84, 83, 83); border-bottom-color: rgb(84, 83, 83);" />
+                <ui:VisualElement name="barGraph" style="width: 92%; height: 100%; border-bottom-width: 3px; border-left-width: 3px; border-left-color: rgb(84, 83, 83); border-right-color: rgb(84, 83, 83); border-top-color: rgb(84, 83, 83); border-bottom-color: rgb(84, 83, 83); flex-direction: row; justify-content: space-around;" />
             </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>
