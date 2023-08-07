@@ -1,0 +1,15 @@
+.text-size1 {
+    font-size: 24px;
+}
+
+.text-size2 {
+    font-size: 32px;
+}
+
+.text-size3 {
+    font-size: 48px;
+}
+
+.text-font {
+    color: rgba(84, 83, 83, 255);
+}

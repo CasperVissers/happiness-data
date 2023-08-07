@@ -1,0 +1,40 @@
+.bar-container {
+    justify-content: flex-end;
+    width: 7%;
+    height: 100%;
+}
+
+.bar {
+    width: 100%;
+    transition-duration: 0.1s;
+}
+
+.bar:hover {
+    scale: 1.05 1;
+    transition-duration: 0.1s;
+    border-top-width: 3px;
+    border-right-width: 3px;
+    border-left-width: 3px;
+    border-left-color: rgb(84, 83, 83);
+    border-right-color: rgb(84, 83, 83);
+    border-top-color: rgb(84, 83, 83);
+    border-bottom-color: rgb(84, 83, 83);
+}
+
+.bar-text-top {
+    top: -5px;
+    width: 100%;
+    -unity-text-align: upper-center;
+}
+
+.bar-text-bottom {
+    position: absolute;
+    bottom: -45px;
+    width: 100%;
+    -unity-text-align: upper-center;
+}
+
+.dashed {
+    background-image: resource('Images/dashed-pattern');
+    -unity-background-image-tint-color: rgba(22, 22, 22, 0.42);
+}
