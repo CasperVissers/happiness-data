@@ -10,7 +10,8 @@ namespace Happiness
         public string CountryName { get; set; }
 
         [JsonProperty("Regional indicator")]
-        public string RegionalIndicator { get; set; }
+        public string RegionalIndicator { set => Region = GetRegion(value); }
+        public Regions Region { get; private set; }
 
         [JsonProperty("Ladder score")]
         public double LadderScore { get; set; }
@@ -65,5 +66,60 @@ namespace Happiness
 
         [JsonProperty("Dystopia + residual")]
         public double DystopiaResidual { get; set; }
+
+        /// <summary>
+        /// Reads a string and tries to match it with one of the regions.
+        /// </summary>
+        private Regions GetRegion(string value)
+        {
+            switch(value)
+            {
+                case "Central and Eastern Europe":
+                    return Regions.CentralAndEasternEurope;
+                case "Western Europe":
+                    return Regions.WesternEurope;
+                case "East Asia":
+                    return Regions.EastAsia;
+                case "South Asia":
+                    return Regions.SouthAsia;
+                case "Southeast Asia":
+                    return Regions.SoutheastAsia;
+                case "Latin America and Caribbean":
+                    return Regions.LatinAmericaAndCaribbean;
+                case "North America and ANZ":
+                    return Regions.NorthAmericaAndANZ;
+                case "Middle East and North Africa":
+                    return Regions.MiddleEastAndNorthAfrica;
+                case "Sub-Saharan Africa":
+                    return Regions.SubSaharanAfrica;
+                case "Commonwealth of Independent States":
+                    return Regions.CommonwealthOfIndependentStates;
+                default:
+                    throw new System.Exception($"Cannot find region for {value}");
+            }
+        }
+
+        public enum Regions
+        {
+            // Europe
+            CentralAndEasternEurope,
+            WesternEurope,
+            
+            // Asia
+            EastAsia,
+            SouthAsia,
+            SoutheastAsia,
+
+            // Americas
+            LatinAmericaAndCaribbean,
+            NorthAmericaAndANZ,
+
+            // Middle East and Africa
+            MiddleEastAndNorthAfrica,
+            SubSaharanAfrica,
+
+            // Other
+            CommonwealthOfIndependentStates,
+        }
     }
 }
