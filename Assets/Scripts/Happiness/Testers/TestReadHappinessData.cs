@@ -5,13 +5,10 @@ namespace Happiness.Testing
 {
     public static class TestReadHappinessData
     {
-        const string FILE_NAME = "Assets/Resources/Happiness Data/happinessData.json";
-
         [MenuItem("Testing/Happiness/DataReader")]
         public static void DezerializeJsonInHappiness()
         {
-            var jsonFile = System.IO.File.ReadAllText(FILE_NAME);
-            var data = HappinessDataGetter.GetHappinessFromJson(jsonFile);
+            var data = HappinessDataGetter.GetHappinessData();
 
             string msg = $"Found {data.Count} countries in data file\n";
             for (int i = 1; i <= data.Count; i++)
