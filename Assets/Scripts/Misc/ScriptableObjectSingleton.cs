@@ -5,7 +5,7 @@ using UnityEngine;
 
 public abstract class ScriptableObjectSingleton<T> : ScriptableObject where T : ScriptableObject
 {
-    public T Instance
+    public static T Instance
     {
         get
         {
@@ -27,5 +27,5 @@ public abstract class ScriptableObjectSingleton<T> : ScriptableObject where T : 
             return _instance;
         }
     }
-    private T _instance;
+    private static T _instance;
 }
