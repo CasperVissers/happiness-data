@@ -14,20 +14,25 @@ namespace Happiness.Testing
             ReadHappinessData(data);
         }
 
-        [MenuItem("Testing/Happiness/RegionReaderWesternEurope")]
+        [MenuItem("Testing/Happiness/RegionWesternEurope")]
         public static void GetHappinessByRegion()
         {
-            ReadHappinessData(HappinessAnalyzer.GetHappinessByRegion(HappinessData.Regions.WesternEurope));
+            ReadHappinessData(HappinessAnalyzer.GetHappinessByRegion(HappinessData.Regions.WesternEurope).ToList());
+        }
+
+        [MenuItem("Testing/Happiness/TopRegionEastAsia")]
+        public static void GetTopHappinessByRegion()
+        {
+            ReadHappinessData(HappinessAnalyzer.GetHappiestCountriesByRegion(HappinessData.Regions.EastAsia, true).ToList());
         }
 
 
-        private static void ReadHappinessData(IEnumerable<HappinessData> data)
+        private static void ReadHappinessData(List<HappinessData> data)
         {
-            var listData = data.ToList();
-            string msg = $"Found {listData.Count} countries in data file\n";
-            for (int i = 1; i <= listData.Count; i++)
+            string msg = $"Found {data.Count} countries in data file\n";
+            for (int i = 1; i <= data.Count; i++)
             {
-                msg += $"{i}. {listData[i - 1].CountryName}\n";
+                msg += $"{i}.\t{data[i - 1].CountryName}\t{data[i - 1].Region}\t{data[i - 1].LadderScore:F3}\n";
             }
             Debug.Log(msg);
         }
