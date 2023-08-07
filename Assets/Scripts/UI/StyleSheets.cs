@@ -8,6 +8,7 @@ namespace UI
     /// </summary>
     public static class StyleSheets 
     {
+        private const string folder = "StyleSheets";
         public static class General
         {
             public const string styleSheet = "general";
@@ -35,8 +36,12 @@ namespace UI
 
         public static StyleSheet GetStyleSheet(string styleSheetName)
         {
-            return Resources.Load<StyleSheet>(styleSheetName);
-
+            var style = Resources.Load<StyleSheet>($"{folder}/{styleSheetName}");
+            if (style == null)
+            {
+                throw new System.Exception($"Cannot find style sheet {folder}/{styleSheetName} in any recources folder.");
+            }
+            return style;
         }
     }
 }
