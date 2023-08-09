@@ -11,3 +11,8 @@
     justify-content: space-between;
     width: 35%;
 }
+
+.stats-container {
+    min-width: 35%;
+    align-items: center;
+}
