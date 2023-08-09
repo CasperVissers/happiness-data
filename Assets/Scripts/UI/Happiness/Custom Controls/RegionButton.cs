@@ -29,7 +29,7 @@ namespace UI
             styleSheets.Add(StyleSheets.Button.GetStyleSheet());
 
             this.AddToClassList(StyleSheets.General.textFont);
-            this.AddToClassList(StyleSheets.General.textFont);
+            this.AddToClassList(StyleSheets.General.textSize1);
 
             this.AddToClassList(StyleSheets.Button.button);
         }
