@@ -8,6 +8,8 @@ namespace Happiness
 {
     public static class HappinessAnalyzer
     {
+        public const string NETHERLANDS = "Netherlands";
+
         /// <summary>
         /// Happiness data in a list format
         /// </summary>
@@ -26,7 +28,7 @@ namespace Happiness
         /// </summary>
         public static HappinessData GetHappinessOfTheNetherlands()
         {
-            return Data.Where(data => data.CountryName == "Netherlands").First();
+            return Data.Where(data => data.CountryName == NETHERLANDS).First();
         }
 
 
@@ -53,6 +55,17 @@ namespace Happiness
             if (includeNetherlands) countryData.Add(GetHappinessOfTheNetherlands());
 
             return countryData.OrderByDescending(data => data.LadderScore);
+        }
+
+        /// <summary>
+        /// Indicates if a region includes the Netherlands.
+        /// </summary>
+        /// <param name="region">Region to check</param>
+        /// <returns>True if the region includes the Netherlands.</returns>
+        public static bool RegionIncludesTheNetherlands(HappinessData.Regions region)
+        {
+            var countryData = GetHappinessByRegion(region);
+            return countryData.Where(country => country.CountryName == NETHERLANDS).Any();
         }
     }
 }

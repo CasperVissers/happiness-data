@@ -72,6 +72,12 @@ namespace UI.Happiness
             netherlandsButton.clicked += () => { netherlandsButton.Selected = !netherlandsButton.Selected; GetData(); };
         }
 
+        private void HideNetherlandsButton(bool isHidden)
+        {
+            netherlandsButton.visible = isHidden;
+        }
+
+
         private void SelectedNewRegion(int selectedIndex)
         {
             for (int i = 0; i < regionButtons.Length; i++)
@@ -86,6 +92,8 @@ namespace UI.Happiness
         {
             AddDataToGraph(HappinessAnalyzer.GetHappiestCountriesByRegion(SelectedRegion,
                            netherlandsButton.Selected).ToList());
+
+            HideNetherlandsButton(!HappinessAnalyzer.RegionIncludesTheNetherlands(SelectedRegion));
         }
 
         private void AddDataToGraph(List<HappinessData> data)
