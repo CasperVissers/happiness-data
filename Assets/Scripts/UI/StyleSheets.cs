@@ -34,6 +34,17 @@ namespace UI
             public static StyleSheet GetStyleSheet() => StyleSheets.GetStyleSheet(styleSheet);
         }
 
+        public static class Button
+        {
+            public const string styleSheet = "button";
+
+            public const string button = "button";
+            public const string buttonColor = "button-color";
+            public const string buttonSelectedColor = "button-selected-color";
+
+            public static StyleSheet GetStyleSheet() => StyleSheets.GetStyleSheet(styleSheet);
+        }
+
         public static StyleSheet GetStyleSheet(string styleSheetName)
         {
             var style = Resources.Load<StyleSheet>($"{folder}/{styleSheetName}");

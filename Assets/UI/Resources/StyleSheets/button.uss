@@ -1,0 +1,68 @@
+.button {
+    border-left-width: 2px;
+    border-right-width: 2px;
+    border-top-width: 2px;
+    border-bottom-width: 2px;
+    transition-duration: 0.1s;
+    min-width: 200px;
+    min-height: 50px;
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.button:hover {
+    background-color: rgb(229, 229, 229);
+    scale: 1.01 1.01;
+    transition-duration: 0.1s;
+}
+
+.button-color {
+    background-color: rgb(195, 195, 195);
+    border-left-color: rgb(84, 83, 83);
+    border-right-color: rgb(84, 83, 83);
+    border-top-color: rgb(84, 83, 83);
+    border-bottom-color: rgb(84, 83, 83);
+    border-left-width: 2px;
+    border-right-width: 2px;
+    border-top-width: 2px;
+    border-bottom-width: 2px;
+}
+
+.button-color:hover {
+    background-color: rgb(229, 229, 229);
+    border-left-color: rgb(84, 83, 83);
+    border-right-color: rgb(84, 83, 83);
+    border-top-color: rgb(84, 83, 83);
+    border-bottom-color: rgb(84, 83, 83);
+    border-left-width: 2px;
+    border-right-width: 2px;
+    border-top-width: 2px;
+    border-bottom-width: 2px;
+}
+
+.button-selected-color {
+    background-color: rgb(130, 130, 130);
+    border-left-color: rgb(84, 83, 83);
+    border-right-color: rgb(84, 83, 83);
+    border-top-color: rgb(84, 83, 83);
+    border-bottom-color: rgb(84, 83, 83);
+    border-left-width: 2px;
+    border-right-width: 2px;
+    border-top-width: 2px;
+    border-bottom-width: 2px;
+    color: rgb(255, 255, 255);
+}
+
+.button-selected-color:hover {
+    background-color: rgb(156, 156, 156);
+    border-left-color: rgb(84, 83, 83);
+    border-right-color: rgb(84, 83, 83);
+    border-top-color: rgb(84, 83, 83);
+    border-bottom-color: rgb(84, 83, 83);
+    border-left-width: 2px;
+    border-right-width: 2px;
+    border-top-width: 2px;
+    border-bottom-width: 2px;
+}

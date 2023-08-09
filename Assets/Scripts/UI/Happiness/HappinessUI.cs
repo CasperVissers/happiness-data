@@ -14,10 +14,11 @@ namespace UI.Happiness
         private int numberOfBars = 10;
         [SerializeField]
         private string barGraphName = "barGraph";
+        [SerializeField]
+        private string buttonsName = "buttons";
 
         private BarVisualElement[] bars;
-
-        private VisualElement barGraph;
+        private RegionButton[] regionButtons;
 
         private void Awake()
         {
@@ -26,16 +27,45 @@ namespace UI.Happiness
 
         private void Init()
         {
-            barGraph = GetComponent<UIDocument>().rootVisualElement.Q<VisualElement>(barGraphName);
+            var root = GetComponent<UIDocument>().rootVisualElement;
+
+            AddBarGraphs(root);
+            AddRegionButtons(root);
+
+            AddDataToGraph(HappinessAnalyzer.GetHappinessByRegion(HappinessData.Regions.WesternEurope).ToList());
+        }
+
+        private void AddBarGraphs(VisualElement root)
+        {
+            var barGraph = root.Q<VisualElement>(barGraphName);
 
             bars = new BarVisualElement[numberOfBars];
             for (int i = 0; i < bars.Length; i++)
             {
-                BarVisualElement bar = new();
-                bars[i] = bar;
-                barGraph.Add(bar);
+                bars[i] = new();
+                barGraph.Add(bars[i]);
             }
-            AddDataToGraph(HappinessAnalyzer.GetHappinessByRegion(HappinessData.Regions.WesternEurope).ToList());
+        }
+
+        private void AddRegionButtons(VisualElement root)
+        {
+            var buttonContainer = root.Q<VisualElement>(buttonsName);
+
+            regionButtons = new RegionButton[(int) HappinessData.Regions.Count];
+            for (int i = 0; i < regionButtons.Length; i++)
+            {
+                regionButtons[i] = new RegionButton((HappinessData.Regions) i);
+                regionButtons[i].clicked += () => SelectedNewRegion(i);
+                buttonContainer.Add(regionButtons[i]);
+            }
+        }
+
+        private void SelectedNewRegion(int selectedIndex)
+        {
+            for (int i = 0; i < regionButtons.Length; i++)
+            {
+                regionButtons[i].Selected = i == selectedIndex;
+            }
         }
 
 
