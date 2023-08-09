@@ -37,4 +37,5 @@
 .dashed {
     background-image: resource('Images/dashed-pattern');
     -unity-background-image-tint-color: rgba(22, 22, 22, 0.42);
+    -unity-background-scale-mode: scale-and-crop;
 }

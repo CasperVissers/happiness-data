@@ -45,6 +45,7 @@ namespace UI.Happiness
             {
                 bars[i].SetValue((float) data[i].LadderScore);
                 bars[i].SetXLabel(data[i].CountryName);
+                bars[i].IsDashed = data[i].CountryName == "Netherlands";
             }
 
             // Hide non used graphs
