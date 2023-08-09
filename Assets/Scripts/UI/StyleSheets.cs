@@ -49,6 +49,7 @@ namespace UI
         {
             public const string styleSheet = "stats";
 
+            public const string statsContainer = "stats-container";
             public const string container = "container";
             public const string valueContainer = "value-container";
 

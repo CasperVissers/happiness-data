@@ -67,5 +67,15 @@ namespace Happiness
             var countryData = GetHappinessByRegion(region);
             return countryData.Where(country => country.CountryName == NETHERLANDS).Any();
         }
+
+        /// <summary>
+        /// Get the data of a single country.
+        /// </summary>
+        /// <param name="countryName">Country to get the data from</param>
+        /// <returns>Happiness data of a single country</returns>
+        public static HappinessData GetCountryData(string countryName)
+        {
+            return Data.Where(country => country.CountryName == countryName).First();
+        }
     }
 }

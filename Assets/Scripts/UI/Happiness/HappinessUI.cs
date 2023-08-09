@@ -22,6 +22,7 @@ namespace UI.Happiness
         private BarVisualElement[] bars;
         private RegionButton[] regionButtons;
         private RegionButton netherlandsButton;
+        private HappinessStatsVisualElement happinessStats;
 
         public HappinessData.Regions SelectedRegion { get; private set; }
 
@@ -36,6 +37,7 @@ namespace UI.Happiness
 
             AddBarGraphs(root);
             InitNetherlandsButton(root);
+            InitHappinessStats(root);
             AddRegionButtons(root);
         }
 
@@ -64,6 +66,12 @@ namespace UI.Happiness
                 buttonContainer.Add(regionButtons[i]);
             }
             SelectedNewRegion(0);
+        }
+
+        private void InitHappinessStats(VisualElement root)
+        {
+            happinessStats = root.Q<HappinessStatsVisualElement>();
+            happinessStats.SetComparetoStats(HappinessAnalyzer.GetCountryData(HappinessAnalyzer.NETHERLANDS));
         }
 
         private void InitNetherlandsButton(VisualElement root)
@@ -110,6 +118,8 @@ namespace UI.Happiness
             {
                 bars[i].HideBar(true);
             }
+
+            happinessStats.SetData(HappinessAnalyzer.GetCountryData(data[0].CountryName));
         }
     }
 }

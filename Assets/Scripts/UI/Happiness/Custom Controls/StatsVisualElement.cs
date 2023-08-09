@@ -58,6 +58,10 @@ namespace UI
             compareValueLabel.style.unityTextAlign = TextAnchor.MiddleRight;
             container.Add(compareValueLabel);
         }
+        public StatsVisualElement(string name) : this()
+        {
+            Name = name;
+        }
 
         private readonly Label statNameLabel;
         private readonly Label valueLabel;
