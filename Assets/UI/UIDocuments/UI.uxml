@@ -23,6 +23,9 @@
                 <ui:Label tabindex="-1" text="Select a region" display-tooltip-when-elided="true" name="regionText" class="text-font text-size1" style="-unity-text-align: upper-center;" />
                 <ui:VisualElement name="buttons" style="background-color: rgba(0, 0, 0, 0); flex-direction: row; flex-wrap: wrap; justify-content: center; width: 90%;" />
             </ui:VisualElement>
+            <ui:VisualElement style="background-color: rgba(0, 0, 0, 0); width: 100%; align-items: center;">
+                <UI.RegionButton text="Include the Netherlands" name="buttonNetherlands" />
+            </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

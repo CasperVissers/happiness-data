@@ -23,7 +23,7 @@ namespace UI.Happiness
         private RegionButton[] regionButtons;
         private RegionButton netherlandsButton;
 
-        private int _index;
+        public HappinessData.Regions SelectedRegion { get; private set; }
 
         private void Awake()
         {
@@ -69,7 +69,7 @@ namespace UI.Happiness
         private void InitNetherlandsButton(VisualElement root)
         {
             netherlandsButton = root.Q<RegionButton>(netherlandsButtonName);
-            netherlandsButton.clicked += () => { netherlandsButton.Selected = !netherlandsButton.Selected; GetData(_index); };
+            netherlandsButton.clicked += () => { netherlandsButton.Selected = !netherlandsButton.Selected; GetData(); };
         }
 
         private void SelectedNewRegion(int selectedIndex)
@@ -78,13 +78,13 @@ namespace UI.Happiness
             {
                 regionButtons[i].Selected = i == selectedIndex;
             }
-            _index = selectedIndex;
-            GetData(_index);
+            SelectedRegion = (HappinessData.Regions) selectedIndex;
+            GetData();
         }
 
-        private void GetData(int selectedIndex)
+        private void GetData()
         {
-            AddDataToGraph(HappinessAnalyzer.GetHappiestCountriesByRegion(regionButtons[selectedIndex].Region,
+            AddDataToGraph(HappinessAnalyzer.GetHappiestCountriesByRegion(SelectedRegion,
                            netherlandsButton.Selected).ToList());
         }
 
