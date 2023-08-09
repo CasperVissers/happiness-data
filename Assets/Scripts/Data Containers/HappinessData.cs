@@ -121,6 +121,9 @@ namespace Happiness
             // Other
             CommonwealthOfIndependentStates,
 
+            //
+            World,
+
             // Last one as counter
             Count
         }

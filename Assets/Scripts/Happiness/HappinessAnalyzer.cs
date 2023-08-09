@@ -35,6 +35,7 @@ namespace Happiness
         /// </summary>
         public static IEnumerable<HappinessData> GetHappinessByRegion(HappinessData.Regions region)
         {
+            if (region == HappinessData.Regions.World) return Data;
             return Data.Where(data => data.Region == region);
         }
 
