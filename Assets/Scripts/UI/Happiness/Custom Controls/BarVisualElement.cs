@@ -60,6 +60,9 @@ namespace UI
         public float Value { get; private set; } = 0f;
         public bool IsDashed { get => _isDashed; set => SetDashing(value); }
         private bool _isDashed = false;
+
+        public string XLabel { get => xLabel.text; set => xLabel.text = value; }
+
         #endregion
         #region Actions
         public event Action Clicked;
@@ -103,7 +106,7 @@ namespace UI
 
             // Set initial value
             SetValue(5);
-            SetXLabel("Unknown");
+            XLabel = "Unknown";
         }
 
         public void SetValue(float value)
@@ -130,11 +133,6 @@ namespace UI
             {
                 bar.style.backgroundColor = SO_HappinessStyle.Instance.barGradient.Evaluate(fraction);
             }
-        }
-
-        public void SetXLabel(string labelName)
-        {
-            xLabel.text = labelName;
         }
 
         private void SetDashing(bool isDashed)

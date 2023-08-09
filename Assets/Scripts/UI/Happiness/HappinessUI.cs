@@ -48,7 +48,9 @@ namespace UI.Happiness
             bars = new BarVisualElement[numberOfBars];
             for (int i = 0; i < bars.Length; i++)
             {
+                var index = i;
                 bars[i] = new();
+                bars[i].Clicked += () => SetCompareData(bars[index].XLabel);
                 barGraph.Add(bars[i]);
             }
         }
@@ -109,7 +111,7 @@ namespace UI.Happiness
             for (int i = 0; i < data.Count && i < bars.Length; i++)
             {
                 bars[i].SetValue((float) data[i].LadderScore);
-                bars[i].SetXLabel(data[i].CountryName);
+                bars[i].XLabel = data[i].CountryName;
                 bars[i].IsDashed = data[i].CountryName == "Netherlands";
             }
 
@@ -119,7 +121,12 @@ namespace UI.Happiness
                 bars[i].HideBar(true);
             }
 
-            happinessStats.SetData(HappinessAnalyzer.GetCountryData(data[0].CountryName));
+            SetCompareData(data[0].CountryName);
+        }
+
+        private void SetCompareData(string countryName)
+        {
+            happinessStats.SetData(HappinessAnalyzer.GetCountryData(countryName));
         }
     }
 }
