@@ -16,9 +16,14 @@ namespace UI.Happiness
         private string barGraphName = "barGraph";
         [SerializeField]
         private string buttonsName = "buttons";
+        [SerializeField]
+        private string netherlandsButtonName = "buttonNetherlands";
 
         private BarVisualElement[] bars;
         private RegionButton[] regionButtons;
+        private RegionButton netherlandsButton;
+
+        private int _index;
 
         private void Awake()
         {
@@ -30,6 +35,7 @@ namespace UI.Happiness
             var root = GetComponent<UIDocument>().rootVisualElement;
 
             AddBarGraphs(root);
+            InitNetherlandsButton(root);
             AddRegionButtons(root);
         }
 
@@ -60,16 +66,27 @@ namespace UI.Happiness
             SelectedNewRegion(0);
         }
 
+        private void InitNetherlandsButton(VisualElement root)
+        {
+            netherlandsButton = root.Q<RegionButton>(netherlandsButtonName);
+            netherlandsButton.clicked += () => { netherlandsButton.Selected = !netherlandsButton.Selected; GetData(_index); };
+        }
+
         private void SelectedNewRegion(int selectedIndex)
         {
             for (int i = 0; i < regionButtons.Length; i++)
             {
                 regionButtons[i].Selected = i == selectedIndex;
             }
-
-            AddDataToGraph(HappinessAnalyzer.GetHappinessByRegion(regionButtons[selectedIndex].Region).ToList());
+            _index = selectedIndex;
+            GetData(_index);
         }
 
+        private void GetData(int selectedIndex)
+        {
+            AddDataToGraph(HappinessAnalyzer.GetHappiestCountriesByRegion(regionButtons[selectedIndex].Region,
+                           netherlandsButton.Selected).ToList());
+        }
 
         private void AddDataToGraph(List<HappinessData> data)
         {
