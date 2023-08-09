@@ -31,8 +31,6 @@ namespace UI.Happiness
 
             AddBarGraphs(root);
             AddRegionButtons(root);
-
-            AddDataToGraph(HappinessAnalyzer.GetHappinessByRegion(HappinessData.Regions.WesternEurope).ToList());
         }
 
         private void AddBarGraphs(VisualElement root)
@@ -68,6 +66,8 @@ namespace UI.Happiness
             {
                 regionButtons[i].Selected = i == selectedIndex;
             }
+
+            AddDataToGraph(HappinessAnalyzer.GetHappinessByRegion(regionButtons[selectedIndex].Region).ToList());
         }
 
 
