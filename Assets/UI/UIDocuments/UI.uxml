@@ -7,7 +7,7 @@
             <ui:Label tabindex="-1" text="Happiness in across the world" display-tooltip-when-elided="true" name="title" class="text-size3 text-font" style="-unity-text-align: upper-center; -unity-font-style: bold;" />
             <ui:Label tabindex="-1" text="Compared to The Netherlands" display-tooltip-when-elided="true" name="title" class="text-font text-size2" style="-unity-text-align: upper-center; -unity-font-style: italic;" />
             <ui:Label tabindex="-1" text="Some text" display-tooltip-when-elided="true" name="info" class="text-size1 text-font" style="white-space: normal; margin-top: 24px; margin-bottom: 24px;" />
-            <ui:VisualElement style="width: 100%; height: 40%; flex-direction: row; align-items: center; margin-top: 25px; margin-bottom: 75px;">
+            <ui:VisualElement style="width: 100%; height: 40%; flex-direction: row; align-items: center; margin-top: 25px; margin-bottom: 55px;">
                 <ui:Label tabindex="-1" text="Happiness score" display-tooltip-when-elided="true" class="text-size2 text-font" style="rotate: -90deg; -unity-text-align: upper-center; position: absolute; left: -3%;" />
                 <ui:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); -unity-text-align: upper-right; justify-content: space-between; height: 106%; align-self: center; padding-right: 5px;">
                     <ui:Label tabindex="-1" text="10" display-tooltip-when-elided="true" class="text-size1 text-font" />
@@ -19,7 +19,10 @@
                 </ui:VisualElement>
                 <ui:VisualElement name="barGraph" style="width: 92%; height: 100%; border-bottom-width: 3px; border-left-width: 3px; border-left-color: rgb(84, 83, 83); border-right-color: rgb(84, 83, 83); border-top-color: rgb(84, 83, 83); border-bottom-color: rgb(84, 83, 83); flex-direction: row; justify-content: space-around;" />
             </ui:VisualElement>
-            <ui:VisualElement name="buttons" style="background-color: rgba(0, 0, 0, 0); flex-direction: row; flex-wrap: wrap; justify-content: center; width: 90%;" />
+            <ui:VisualElement style="background-color: rgba(0, 0, 0, 0); width: 100%; align-items: center;">
+                <ui:Label tabindex="-1" text="Select a region" display-tooltip-when-elided="true" name="regionText" class="text-font text-size1" style="-unity-text-align: upper-center;" />
+                <ui:VisualElement name="buttons" style="background-color: rgba(0, 0, 0, 0); flex-direction: row; flex-wrap: wrap; justify-content: center; width: 90%;" />
+            </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

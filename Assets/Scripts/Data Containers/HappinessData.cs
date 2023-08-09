@@ -102,9 +102,9 @@ namespace Happiness
         public enum Regions
         {
             // Europe
-            CentralAndEasternEurope,
             WesternEurope,
-            
+            CentralAndEasternEurope,
+
             // Asia
             EastAsia,
             SouthAsia,

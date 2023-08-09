@@ -59,11 +59,11 @@ namespace UI.Happiness
                 regionButtons[i].clicked += () => SelectedNewRegion(index);
                 buttonContainer.Add(regionButtons[i]);
             }
+            SelectedNewRegion(0);
         }
 
         private void SelectedNewRegion(int selectedIndex)
         {
-            Debug.Log($"Clicked {selectedIndex}");
             for (int i = 0; i < regionButtons.Length; i++)
             {
                 regionButtons[i].Selected = i == selectedIndex;
