@@ -45,6 +45,16 @@ namespace UI
             public static StyleSheet GetStyleSheet() => StyleSheets.GetStyleSheet(styleSheet);
         }
 
+        public static class Stats
+        {
+            public const string styleSheet = "stats";
+
+            public const string container = "container";
+            public const string valueContainer = "value-container";
+
+            public static StyleSheet GetStyleSheet() => StyleSheets.GetStyleSheet(styleSheet);
+        }
+
         public static StyleSheet GetStyleSheet(string styleSheetName)
         {
             var style = Resources.Load<StyleSheet>($"{folder}/{styleSheetName}");

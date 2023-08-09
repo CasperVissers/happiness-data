@@ -1,0 +1,13 @@
+.container {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.value-container {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 35%;
+}
