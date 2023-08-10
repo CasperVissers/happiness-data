@@ -4,10 +4,10 @@
     <Style src="project://database/Assets/UI/Resources/StyleSheets/button.uss?fileID=7433441132597879392&amp;guid=8cb39936d24b5f4499760a2528db2af9&amp;type=3#button" />
     <Style src="project://database/Assets/UI/Resources/StyleSheets/stats.uss?fileID=7433441132597879392&amp;guid=cb7b4768639dba2428fb50c056a4e01b&amp;type=3#stats" />
     <ui:VisualElement name="background" style="background-color: rgb(195, 195, 195); flex-grow: 1; align-items: center; justify-content: space-around;">
-        <ui:VisualElement name="page" style="height: 100%; width: 75%; background-color: rgba(144, 144, 144, 0.39); padding-left: 50px; padding-right: 50px; padding-top: 50px; padding-bottom: 50px; align-items: center;">
+        <ui:VisualElement name="page" style="height: 100%; width: 75%; background-color: rgba(144, 144, 144, 0.39); padding-left: 25px; padding-right: 25px; padding-top: 25px; padding-bottom: 25px; align-items: center;">
             <ui:Label tabindex="-1" text="Happiness in across the world" display-tooltip-when-elided="true" name="title" class="text-size3 text-font" style="-unity-text-align: upper-center; -unity-font-style: bold;" />
             <ui:Label tabindex="-1" text="Compared to The Netherlands" display-tooltip-when-elided="true" name="title" class="text-font text-size2" style="-unity-text-align: upper-center; -unity-font-style: italic;" />
-            <ui:VisualElement style="width: 100%; height: 40%; flex-direction: row; align-items: center; margin-top: 25px; margin-bottom: 55px;">
+            <ui:VisualElement style="width: 100%; height: 40%; flex-direction: row; align-items: center; margin-top: 10px; margin-bottom: 55px;">
                 <ui:Label tabindex="-1" text="Ladder score" display-tooltip-when-elided="true" class="text-size2 text-font" style="rotate: -90deg; -unity-text-align: upper-center; position: absolute; left: -3%;" />
                 <ui:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); -unity-text-align: upper-right; justify-content: space-between; height: 106%; align-self: center; padding-right: 5px;">
                     <ui:Label tabindex="-1" text="10" display-tooltip-when-elided="true" class="text-size1 text-font" />
@@ -26,7 +26,7 @@
             <ui:VisualElement style="background-color: rgba(0, 0, 0, 0); width: 100%; align-items: center;">
                 <UI.RegionButton text="Include the Netherlands" name="buttonNetherlands" />
             </ui:VisualElement>
-            <UI.HappinessStatsVisualElement style="margin-top: 25px;" />
+            <UI.HappinessStatsVisualElement style="margin-top: 25px; min-width: 45%;" />
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

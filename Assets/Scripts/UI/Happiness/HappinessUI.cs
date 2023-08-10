@@ -50,7 +50,7 @@ namespace UI.Happiness
             {
                 var index = i;
                 bars[i] = new();
-                bars[i].Clicked += () => SetCompareData(bars[index].XLabel);
+                bars[i].Clicked += () => SetSelectedBar(index);
                 barGraph.Add(bars[i]);
             }
         }
@@ -121,12 +121,21 @@ namespace UI.Happiness
                 bars[i].HideBar(true);
             }
 
-            SetCompareData(data[0].CountryName);
+            SetSelectedBar(0);
         }
 
-        private void SetCompareData(string countryName)
+        private void SetSelectedBar(int index)
         {
-            happinessStats.SetData(HappinessAnalyzer.GetCountryData(countryName));
+            for (int i = 0; i < bars.Length; i++)
+            {
+                bars[i].Selected = i == index;
+            }
+            SetCompareData(bars[index].XLabel);
+
+            void SetCompareData(string countryName)
+            {
+                happinessStats.SetData(HappinessAnalyzer.GetCountryData(countryName));
+            }
         }
     }
 }

@@ -27,6 +27,7 @@ namespace UI
 
             public const string container = "bar-container";
             public const string bar = "bar";
+            public const string barSelected = "bar-selected";
             public const string textTop = "bar-text-top";
             public const string textBottom = "bar-text-bottom";
             public const string dashed = "dashed";

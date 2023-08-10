@@ -13,6 +13,7 @@ namespace UI
             private readonly UxmlFloatAttributeDescription m_Min = new() { name = "Min", defaultValue = 0f };
             private readonly UxmlFloatAttributeDescription m_Max = new() { name = "Max", defaultValue = 10f };
             private readonly UxmlFloatAttributeDescription m_Current = new() { name = "Value", defaultValue = 5f };
+            private readonly UxmlBoolAttributeDescription m_Selected = new() { name = "Selected", defaultValue = false };
             private readonly UxmlBoolAttributeDescription m_IsDashed = new() { name = "Is Dashed", defaultValue = false };
 
 
@@ -24,6 +25,7 @@ namespace UI
                 bar.Max = m_Max.GetValueFromBag(bag, cc);
                 bar.SetValue(m_Current.GetValueFromBag(bag, cc));
                 bar.IsDashed = m_IsDashed.GetValueFromBag(bag, cc);
+                bar.Selected = m_Selected.GetValueFromBag(bag, cc);
             }
         }
         #endregion
@@ -60,7 +62,8 @@ namespace UI
         public float Value { get; private set; } = 0f;
         public bool IsDashed { get => _isDashed; set => SetDashing(value); }
         private bool _isDashed = false;
-
+        public bool Selected { get => _selected; set { _selected = value; SelectBar() ; } }
+        private bool _selected;
         public string XLabel { get => xLabel.text; set => xLabel.text = value; }
 
         #endregion
@@ -154,12 +157,26 @@ namespace UI
 
         private void SetVisibilityValueLabel(bool isVisable)
         {
-            valueLabel.style.visibility = isVisable ? Visibility.Visible : Visibility.Hidden;
+            valueLabel.style.visibility = isVisable || Selected ? Visibility.Visible : Visibility.Hidden;
         }
 
         public void HideBar(bool isHidden)
         {
             this.style.display = isHidden ? DisplayStyle.None : DisplayStyle.Flex;
+        }
+
+        private void SelectBar()
+        {
+            SetVisibilityValueLabel(Selected);
+            if (Selected)
+            {
+                bar.AddToClassList(StyleSheets.Bar.barSelected);
+
+            }
+            else
+            {
+                bar.RemoveFromClassList(StyleSheets.Bar.barSelected);
+            }
         }
     }
 }

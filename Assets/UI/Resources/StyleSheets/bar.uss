@@ -21,6 +21,18 @@
     border-bottom-color: rgb(84, 83, 83);
 }
 
+.bar-selected {
+    scale: 1.05 1;
+    transition-duration: 0.1s;
+    border-top-width: 3px;
+    border-right-width: 3px;
+    border-left-width: 3px;
+    border-left-color: rgb(84, 83, 83);
+    border-right-color: rgb(84, 83, 83);
+    border-top-color: rgb(84, 83, 83);
+    border-bottom-color: rgb(84, 83, 83);
+}
+
 .bar-text-top {
     top: -5px;
     width: 100%;
