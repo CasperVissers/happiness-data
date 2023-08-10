@@ -5,8 +5,10 @@ using UnityEngine;
 
 namespace Happiness.Testing
 {
+    #if UNITY_EDITOR
     public static class TestReadHappinessData
     {
+        
         [MenuItem("Testing/Happiness/DataReader")]
         public static void DezerializeJsonInHappiness()
         {
@@ -25,7 +27,7 @@ namespace Happiness.Testing
         {
             ReadHappinessData(HappinessAnalyzer.GetHappiestCountriesByRegion(HappinessData.Regions.EastAsia, true).ToList());
         }
-
+        
 
         private static void ReadHappinessData(List<HappinessData> data)
         {
@@ -37,4 +39,5 @@ namespace Happiness.Testing
             Debug.Log(msg);
         }
     }
+    #endif
 }
